@@ -21,3 +21,4 @@ jobs:
       run: git log  --pretty=oneline   --reverse | sed 's/\|/ /'|awk '{print $1}'
     - name: test
       run: git log  --pretty=oneline   --reverse | sed 's/\|/ /'|awk '{print $1}' | awk -v string="$GITHUB_SHA" -f tst.awk
+    - run: ./script_pipeline.sh $GITHUB_SHA
