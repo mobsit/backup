@@ -15,10 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/labeler@v4
-      with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-    - run: echo ${{ secrets.GITHUB_TOKEN }}
+
     - uses: actions/checkout@v3
       with:
        fetch-depth: 0
@@ -39,4 +36,4 @@ jobs:
        git config --global user.email "khadijamobsit@gmail.com"
        git add .
        git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
-       git push
+       git push https://token_git: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@github.com/mobsit/backup
