@@ -36,4 +36,4 @@ jobs:
        git config --global user.email "khadijamobsit@gmail.com"
        git add .
        git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
-       git push https://token_git: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@github.com/mobsit/backup
+       git push https://token_git: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@github.com/mobsit/backup.git
