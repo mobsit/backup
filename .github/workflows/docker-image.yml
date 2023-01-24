@@ -23,4 +23,13 @@ jobs:
     - name: test
       run: git log  --pretty=oneline   --reverse | sed 's/\|/ /'|awk '{print $1}' | awk -v string="$GITHUB_SHA" -f tst.awk
     - run: ./script_pipeline.sh $GITHUB_SHA
-    - run: git push
+    - name: GIT commit and push docs
+      env: 
+         CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
+         CI_COMMIT_AUTHOR: mobsit
+      run: |
+       git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+       git config --global user.email "khadijamobsit@gmail.com"
+       git add .
+       git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
+       git push
