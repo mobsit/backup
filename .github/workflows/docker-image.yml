@@ -15,4 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
+      run: echo $GITHUB_SHA
+    - name: test
       run: git log  --pretty=oneline   --reverse | sed 's/\|/ /'|awk '{print $1}' | awk -v string="$GITHUB_SHA" -f tst.awk
