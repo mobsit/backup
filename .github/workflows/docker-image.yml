@@ -15,10 +15,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/labeler@v4
+      with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/checkout@v3
       with:
        fetch-depth: 0
-       repo-token: ${{ secrets.GITHUB_TOKEN }}
     - run: echo $GITHUB_SHA
     - run: ls -l
     - run: mkdir foo
