@@ -20,8 +20,8 @@ jobs:
       with:
        fetch-depth: 0
     - uses: actions/labeler@v4
-       with:
-        repo-token: ${{ secrets.SECRET_TOKEN}}"
+      with:
+       repo-token: ${{ secrets.SECRET_TOKEN}}"
     - run: echo $GITHUB_SHA
     - run: ls -l
     - run: mkdir foo
