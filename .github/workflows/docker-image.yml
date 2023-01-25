@@ -33,9 +33,11 @@ jobs:
          git config --global user.email "khadijamobsit@gmail.com"
          git clone https://github.com/jambonrose/python-web-dev-21-2.git target
          #rm everything but the .git directory
-         
+         ls -l 
+         pwd
          cd target
          ls -l
+         pwd
          cp runtime.txt /backup/data
          git add .
          git diff-index --quiet HEAD || git commit -m "Automatic publish from github.com/project"
