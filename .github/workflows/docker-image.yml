@@ -31,7 +31,7 @@ jobs:
     - run: |
         echo "::set-output name=description::$(gh release view --repo jambonrose/python-web-dev-21-2)"
     - run: |
-         git clone https://github.com/jambonrose/python-web-dev-21-2/tree/class_material/src target
+         git clone https://github.com/jambonrose/python-web-dev-21-2.git target
          rm everything but the .git directory
          copy source\files target
          cd target
