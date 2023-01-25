@@ -42,9 +42,10 @@ jobs:
          cp runtime.txt /home/runner/work/backup/backup/data
          git config --global user.name "mobsit"
          git config --global user.email "khadijamobsit@gmail.com"
-         git add .
-         echo "test"
+         cd ..
+         git add runtime.txt
          git commit -m "Automatic"
+         git status
          git push
     - name: Checkout tools repo
       uses: actions/checkout@v3
