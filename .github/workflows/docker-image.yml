@@ -23,6 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - uses: actions/checkout@v2
+      with:
+       repository: 'https://github.com/githubtraining/hellogitworld'
 
     - uses: actions/checkout@v3
       with:
