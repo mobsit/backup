@@ -38,6 +38,7 @@ jobs:
     - run: echo  "${{ github.repository }}"
     - run: ls -l
     - run: mkdir foo
+    - run: cp action.yml data
     - name: Build the Docker image
       run: git log  --pretty=oneline   --reverse | sed 's/\|/ /'|awk '{print $1}'
     - name: test
