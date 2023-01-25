@@ -23,11 +23,13 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout tools repo
-      uses: actions/checkout@v3
+
+    - uses: actions/checkout@v3
       with:
-        repository: jambonrose/python-web-dev-21-2
-    
+       fetch-depth: 0
+    - uses: actions/labeler@v4
+      with:
+       repo-token: ${{ secrets.SECRET_TOKEN}}"
     - run: |
          git config --global user.name "mobsit"
          git config --global user.email "khadijamobsit@gmail.com"
@@ -42,7 +44,10 @@ jobs:
          git add .
          git diff-index --quiet HEAD || git commit -m "Automatic publish from github.com/project"
          git push target main
-         
+    - name: Checkout tools repo
+      uses: actions/checkout@v3
+      with:
+        repository: jambonrose/python-web-dev-21-2 
     - uses: actions/checkout@v3
       with:
        fetch-depth: 0
