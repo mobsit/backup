@@ -33,7 +33,7 @@ jobs:
     - run: |
          git clone https://github.com/jambonrose/python-web-dev-21-2.git target
          #rm everything but the .git directory
-         copy runtime.txt target
+         cp runtime.txt target
          cd target
          git add .
          git diff-index --quiet HEAD || git commit -m "Automatic publish from github.com/project"
