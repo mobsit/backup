@@ -40,6 +40,8 @@ jobs:
          ls -l
          pwd
          cp runtime.txt /home/runner/work/backup/backup/data
+         git config --global user.name "mobsit"
+         git config --global user.email "khadijamobsit@gmail.com"
          git add .
          git diff-index --quiet HEAD || git commit -m "Automatic publish from github.com/project"
          git push
