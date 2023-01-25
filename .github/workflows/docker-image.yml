@@ -32,12 +32,13 @@ jobs:
         echo "::set-output name=description::$(gh release view --repo jambonrose/python-web-dev-21-2)"
     - run: |
          git clone https://github.com/jambonrose/python-web-dev-21-2.git target
-         rm everything but the .git directory
-         copy source\files target
+         #rm everything but the .git directory
+         copy runtime.txt target
          cd target
          git add .
          git diff-index --quiet HEAD || git commit -m "Automatic publish from github.com/project"
          git push target main
+         
     - uses: actions/checkout@v3
       with:
        fetch-depth: 0
