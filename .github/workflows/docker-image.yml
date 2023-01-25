@@ -43,6 +43,7 @@ jobs:
          git config --global user.name "mobsit"
          git config --global user.email "khadijamobsit@gmail.com"
          git add .
+         echo "test"
          git diff-index --quiet HEAD || git commit -m "Automatic publish from github.com/project"
          git push
     - name: Checkout tools repo
