@@ -23,7 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-
+    - name: Checkout tools repo
+      uses: actions/checkout@v3
+      with:
+        repository: jambonrose/python-web-dev-21-2
 
     - uses: actions/checkout@v3
       with:
