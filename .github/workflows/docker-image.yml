@@ -40,6 +40,8 @@ jobs:
          ls -l
          pwd
          cp runtime.txt /home/runner/work/backup/backup/data
+         cd ..
+         git status
          git config --global user.name "mobsit"
          git config --global user.email "khadijamobsit@gmail.com"
          cd ..
