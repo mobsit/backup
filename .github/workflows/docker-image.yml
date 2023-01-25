@@ -31,8 +31,7 @@ jobs:
       with:
        repo-token: ${{ secrets.SECRET_TOKEN}}"
     - run: |
-         git config --global user.name "mobsit"
-         git config --global user.email "khadijamobsit@gmail.com"
+        
          git clone https://github.com/jambonrose/python-web-dev-21-2.git target
          #rm everything but the .git directory
          ls -l 
