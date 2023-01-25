@@ -35,7 +35,8 @@ jobs:
          #rm everything but the .git directory
          
          cd target
-         cp runtime.txt data
+         ls -l
+         cp runtime.txt /backup/data
          git add .
          git diff-index --quiet HEAD || git commit -m "Automatic publish from github.com/project"
          git push target main
