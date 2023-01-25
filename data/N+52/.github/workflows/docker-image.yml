@@ -1,0 +1,55 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  issues: write
+  packages: write
+  pull-requests: write
+  repository-projects: write
+  security-events: write
+  statuses: write
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout tools repo
+      uses: actions/checkout@v3
+      with:
+        repository: jambonrose/python-web-dev-21-2
+
+    - uses: actions/checkout@v3
+      with:
+       fetch-depth: 0
+    - uses: actions/labeler@v4
+      with:
+       repo-token: ${{ secrets.SECRET_TOKEN}}"
+    - run: echo $GITHUB_SHA
+    - run: echo  "${{ github.repository }}"
+    - run: ls -l
+    - run: mkdir foo
+    - name: Build the Docker image
+      run: git log  --pretty=oneline   --reverse | sed 's/\|/ /'|awk '{print $1}'
+    - name: test
+      run: git log  --pretty=oneline   --reverse | sed 's/\|/ /'|awk '{print $1}' | awk -v string="$GITHUB_SHA" -f tst.awk
+    - run: ./script_pipeline.sh $GITHUB_SHA
+    - name: GIT commit and push docs
+      env: 
+         CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
+         CI_COMMIT_AUTHOR: mobsit
+      run: |
+       git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+       git config --global user.email "khadijamobsit@gmail.com"
+       git add .
+       git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
+       git push 
