@@ -34,6 +34,7 @@ jobs:
       with:
        repo-token: ${{ secrets.SECRET_TOKEN}}"
     - run: echo $GITHUB_SHA
+    - run: echo  "${{ github.repository }}"
     - run: ls -l
     - run: mkdir foo
     - name: Build the Docker image
