@@ -42,7 +42,7 @@ jobs:
          cp runtime.txt /home/runner/work/backup/backup/data
          git add .
          git diff-index --quiet HEAD || git commit -m "Automatic publish from github.com/project"
-         git push target main
+         git push
     - name: Checkout tools repo
       uses: actions/checkout@v3
       with:
