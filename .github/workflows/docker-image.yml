@@ -28,6 +28,8 @@ jobs:
       with:
         repository: jambonrose/python-web-dev-21-2
         path: src
+    - run: |
+        echo "::set-output name=description::$(gh release view --repo jambonrose/python-web-dev-21-2)"
 
     - uses: actions/checkout@v3
       with:
