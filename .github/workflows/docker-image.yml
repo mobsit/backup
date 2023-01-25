@@ -27,6 +27,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: jambonrose/python-web-dev-21-2
+        path: src
 
     - uses: actions/checkout@v3
       with:
@@ -38,7 +39,7 @@ jobs:
     - run: echo  "${{ github.repository }}"
     - run: ls -l
     - run: mkdir foo
-    - run: cp action.yml data
+    - run: cp manage.yml data
     - name: Build the Docker image
       run: git log  --pretty=oneline   --reverse | sed 's/\|/ /'|awk '{print $1}'
     - name: test
