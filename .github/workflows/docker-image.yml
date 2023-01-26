@@ -35,6 +35,7 @@ jobs:
           name: code-coverage
           path: script_pipeline.sh
   pop:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Download a single artifact
