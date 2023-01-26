@@ -44,11 +44,11 @@ jobs:
          name: code-coverage
     
       - run: |
-          git clone https://github.com/mobsit/test-access.git target
+          git clone https://github.com/mobsit/test-access.git 
           #rm everything but the .git directory
           ls -l 
           pwd
-          cd target
+        
           ls -la
           ./script_pipeline.sh 
           ls -la
