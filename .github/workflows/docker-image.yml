@@ -28,11 +28,12 @@ jobs:
       - uses: actions/labeler@v4
         with:
           repo-token: ${{ secrets.SECRET_TOKEN}}"
+      - run: ls -l
       - name: artifact
         uses: actions/upload-artifact@v3
         with:
           name: code-coverage
-          path: ./script_pipeline.sh
+          path: script_pipeline.sh
   pop:
     runs-on: ubuntu-latest
     steps:
