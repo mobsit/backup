@@ -37,6 +37,10 @@ jobs:
   pop:
     runs-on: ubuntu-latest
     steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+         name: code-coverage
       - run: cp script_pipeline.sh .
       - run: |
           git clone https://github.com/mobsit/test-access.git target
