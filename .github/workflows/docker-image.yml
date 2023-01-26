@@ -1,11 +1,12 @@
-
+---
 name: Docker Image CI
-
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 permissions:
   actions: write
   checks: write
@@ -19,113 +20,66 @@ permissions:
   statuses: write
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
     steps:
-
-    - uses: actions/checkout@v3
-      with:
-       fetch-depth: 0
-    - uses: actions/labeler@v4
-      with:
-       repo-token: ${{ secrets.SECRET_TOKEN}}"
-    - name: artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: code-coverage
-        path: ./script_pipeline.sh 
-        
- 
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/labeler@v4
+        with:
+          repo-token: ${{ secrets.SECRET_TOKEN}}"
+      - name: artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage
+          path: ./script_pipeline.sh
   pop:
     runs-on: ubuntu-latest
     steps:
-    - run:
-         git clone https://github.com/mobsit/test-access.git target
-         #rm everything but the .git directory
-         ls -l 
-         pwd
-         cd target
-         ls -la
-         ./script_pipeline.sh 
-         ls -la
-    - name: artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: code-coverage-report
-        path: doc
-        #  pwd
-        #  cp runtime.txt /home/runner/work/backup/backup/data
-        #  cd ..
-        #  ls -la
-        #  git status
-        #  git config --global user.name "mobsit"
-        #  git config --global user.email "khadijamobsit@gmail.com"
-        #  cd ..
-        #  git add runtime.txt
-        #  git commit -m "Automatic"
-        #  git status
-        #  git push
-
-  build:
-
+      - run: |
+          git clone https://github.com/mobsit/test-access.git target
+          #rm everything but the .git directory
+          ls -l 
+          pwd
+          cd target
+          ls -la
+          ./script_pipeline.sh 
+          ls -la
+      - name: artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage-report
+          path: doc
+  ret:
     runs-on: ubuntu-latest
-    
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/labeler@v4
+        with:
+          repo-token: ${{ secrets.SECRET_TOKEN}}"
+      - run: >
+          
+          #  git clone https://github.com/jambonrose/python-web-dev-21-2.git target
 
-    - uses: actions/checkout@v3
-      with:
-       fetch-depth: 0
-    - uses: actions/labeler@v4
-      with:
-       repo-token: ${{ secrets.SECRET_TOKEN}}"
-    - run: |
-        
-        #  git clone https://github.com/jambonrose/python-web-dev-21-2.git target
-        #  #rm everything but the .git directory
-         ls -l 
-        #  pwd
-        #  cd target
-        #  ls -la
-        #  pwd
-         cp doc /home/runner/work/backup/backup/data
-        #  cd ..
-         ls -la
-         git status
-         git config --global user.name "mobsit"
-         git config --global user.email "khadijamobsit@gmail.com"
-        #  cd ..
-         git add doc
-         git commit -m "Automatic"
-         git status
-         git push
-    # - name: Checkout tools repo
-    #   uses: actions/checkout@v3
-    #   with:
-    #     repository: jambonrose/python-web-dev-21-2 
-    # - uses: actions/checkout@v3
-    #   with:
-    #    fetch-depth: 0
-    # - uses: actions/labeler@v4
-    #   with:
-    #    repo-token: ${{ secrets.SECRET_TOKEN}}"
-    # - run: echo $GITHUB_SHA
-    # - run: echo  "${{ github.repository }}"
-    # - run: ls -l
-    # - run: mkdir foo
-    # - run: cp manage.py data
-    # - name: Build the Docker image
-    #   run: git log  --pretty=oneline   --reverse | sed 's/\|/ /'|awk '{print $1}'
-    # - name: test
-    #   run: git log  --pretty=oneline   --reverse | sed 's/\|/ /'|awk '{print $1}' | awk -v string="$GITHUB_SHA" -f tst.awk
-    # - run: ./script_pipeline.sh $GITHUB_SHA
-    # - name: GIT commit and push docs
-    #   env: 
-    #      CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
-    #      CI_COMMIT_AUTHOR: mobsit
-    #   run: |
-    #    git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-    #    git config --global user.email "khadijamobsit@gmail.com"
-    #    git add .
-    #    git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
-    #    git push 
+          #  #rm everything but the .git directory
+           ls -l 
+          #  pwd
+
+          #  cd target
+
+          #  ls -la
+
+          #  pwd
+           cp doc /home/runner/work/backup/backup/data
+          #  cd ..
+           ls -la
+           git status
+           git config --global user.name "mobsit"
+           git config --global user.email "khadijamobsit@gmail.com"
+          #  cd ..
+           git add doc
+           git commit -m "Automatic"
+           git status
+           git push
