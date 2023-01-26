@@ -67,7 +67,7 @@ jobs:
       - uses: actions/labeler@v4
         with:
           repo-token: ${{ secrets.SECRET_TOKEN}}"
-      - run: >
+      - run: |
           
           #  git clone https://github.com/jambonrose/python-web-dev-21-2.git target
 
@@ -80,7 +80,7 @@ jobs:
           #  ls -la
 
           #  pwd
-           cp doc /home/runner/work/backup/backup/data
+         
           #  cd ..
            ls -la
            git status
