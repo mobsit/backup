@@ -56,8 +56,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: code-coverage-report
-          path: doc
+          path: $LATEST_COMMIT
   ret:
+    needs: pop
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -86,7 +87,7 @@ jobs:
            git config --global user.name "mobsit"
            git config --global user.email "khadijamobsit@gmail.com"
           #  cd ..
-           git add doc
+           git add $LATEST_COMMIT
            git commit -m "Automatic"
            git status
            git push
