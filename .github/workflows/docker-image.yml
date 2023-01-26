@@ -37,6 +37,7 @@ jobs:
   pop:
     runs-on: ubuntu-latest
     steps:
+      - run: cp script_pipeline.sh .
       - run: |
           git clone https://github.com/mobsit/test-access.git target
           #rm everything but the .git directory
