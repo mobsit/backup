@@ -88,7 +88,7 @@ jobs:
            git config --global user.name "mobsit"
            git config --global user.email "khadijamobsit@gmail.com"
           
-           git add .
+           git add data
            git commit -m "Automatic"
            git status
            git push
