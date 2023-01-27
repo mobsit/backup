@@ -70,26 +70,18 @@ jobs:
         with:
           repo-token: ${{ secrets.SECRET_TOKEN}}"
       - run: |
+      
+        
+
           
-          #  git clone https://github.com/jambonrose/python-web-dev-21-2.git target
-
-          #  #rm everything but the .git directory
-           ls -l 
-          #  pwd
-
-          #  cd target
-
-          #  ls -la
-
-          #  pwd
-         
-          #  cd ..
-           ls -la
+           ls -l
+           cd data
+           ls -l
            git status
            git config --global user.name "mobsit"
            git config --global user.email "khadijamobsit@gmail.com"
-          #  cd ..
-           git add $LATEST_COMMIT
+          
+           git add .
            git commit -m "Automatic"
            git status
            git push
