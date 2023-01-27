@@ -5,7 +5,7 @@ echo "******* script started *****"
 echo "*****************"
 
 # Track changes to the master branch
-git checkout master
+git checkout main
 
 # Save the SHA-1 hash of the latest commit
 LATEST_COMMIT=$(git rev-parse HEAD)
