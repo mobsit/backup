@@ -78,7 +78,7 @@ jobs:
       - run: |
       
         
-
+           cd /home/runner/work/backup/backup
           
            ls -l
            cd data
