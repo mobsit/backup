@@ -82,7 +82,7 @@ jobs:
            cd  /home/runner/work/backup/backup
           
            ls -l
-           cd data
+           
            ls -l
            git status
            git config --global user.name "mobsit"
