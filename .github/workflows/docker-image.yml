@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: code-coverage-report
-          path: test-access/data
+        
   ret:
     needs: pop
     runs-on: ubuntu-latest
