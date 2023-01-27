@@ -64,17 +64,18 @@ jobs:
     needs: pop
     runs-on: ubuntu-latest
     steps:
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        with:
-         name: code-coverage-report
-       
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2
       - uses: actions/labeler@v4
         with:
           repo-token: ${{ secrets.SECRET_TOKEN}}"
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+         name: code-coverage-report
+       
+    
       - run: |
       
         
