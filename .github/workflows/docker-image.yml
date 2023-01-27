@@ -48,6 +48,8 @@ jobs:
           #rm everything but the .git directory
           ls -l 
           pwd
+          mv script_pipeline.sh test-access/script_pipeline.sh
+          cd test-access
           chmod 777 script_pipeline.sh
           ls -la
           ./script_pipeline.sh 
